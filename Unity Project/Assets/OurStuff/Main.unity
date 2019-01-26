@@ -233,10 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d5b9fe73d0df43458216e6864a27e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  room_set:
-  - obj: {fileID: 100000, guid: a8f93b6a069b31440b25eb8bf362e314, type: 3}
-    position: {x: 0, y: 0, z: 1}
-    rotation: {x: 0, y: 0, z: 0}
+  room_set: []
 --- !u!4 &94844417
 Transform:
   m_ObjectHideFlags: 0
@@ -849,8 +846,8 @@ Transform:
   m_LocalPosition: {x: 0.129, y: 0.73, z: 1.837}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 534669905}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534669902
 GameObject:
@@ -936,7 +933,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1307104818}
-  - {fileID: 478919604}
+  - {fileID: 654534368}
   m_Father: {fileID: 340224923}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
