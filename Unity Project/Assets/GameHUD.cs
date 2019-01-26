@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class GameHUD : MonoBehaviour
 {
     public Text timerText;
-    public float timeLeft = 900;
+    public float timeLeft = 20;
 
     //// Start is called before the first frame update
     //void Start()
@@ -21,6 +21,15 @@ public class GameHUD : MonoBehaviour
     void Update()
     {
         timeLeft -= Time.deltaTime;
-        timerText.text = "IKEA closing:  " + (Mathf.Floor(timeLeft)).ToString();
+        int timeInteger = (int)Mathf.Floor(timeLeft);
+        int secs = timeInteger % 60;
+        int mins = (int)Mathf.Floor(timeInteger / 60);
+        if (secs < 10)
+        {
+            timerText.text = "IKEA\n\n closing\n\n" + mins.ToString() + ":0" + secs.ToString();
+        }
+        else {
+            timerText.text = "IKEA\n\n closing\n\n" + mins.ToString() + ":" + secs.ToString();
+        }
     }
 }
