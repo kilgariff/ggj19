@@ -9,56 +9,92 @@ public class Hands : MonoBehaviour
     public GameObject leftHandSource = null;
     public GameObject rightHandSource = null;
 
+    public GameObject watchDisplay = null;
+
     GameObject leftHand = null;
     GameObject rightHand = null;
 
-    Animator anim;
-
     int Idle = Animator.StringToHash("Idle");
-    int GrabLarge = Animator.StringToHash("GrabLarge");
+    int GrabSmall = Animator.StringToHash("GrabSmall");
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+    }
 
-        leftHand = Object.Instantiate(leftHandSource, this.transform);
-        rightHand = Object.Instantiate(rightHandSource, this.transform);
+    void UpdateGrip(GameObject hand, float triggerValue)
+    {
+        if (hand != null)
+        {
+            Animator anim;
+            anim = hand.GetComponent<Animator>();
+
+            if (triggerValue >= 0.5f)
+            {
+                anim.SetTrigger(GrabSmall);
+            }
+            else
+            {
+                anim.SetTrigger(Idle);
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        float right_trigger = Input.GetAxis("AXIS_10");
-        Debug.Log("Right hand trigger axis: " + right_trigger);
-
         var interactionSourceStates = InteractionManager.GetCurrentReading();
         foreach (var interactionSourceState in interactionSourceStates)
         {
+            var handedness = interactionSourceState.source.handedness;
+            GameObject hand = null;
+
+            if (handedness == InteractionSourceHandedness.Left)
+            {
+                hand = leftHand;
+            }
+            else if (handedness == InteractionSourceHandedness.Right)
+            {
+                hand = rightHand;
+            }
+
+            if (interactionSourceState.selectPressed)
+            {
+                UpdateGrip(hand, 1.0f);
+            }
+            else
+            {
+                UpdateGrip(hand, 0.0f);
+            }
+
             var sourcePose = interactionSourceState.sourcePose;
+
             Vector3 sourceGripPosition;
             Quaternion sourceGripRotation;
 
             if ((sourcePose.TryGetPosition(out sourceGripPosition, InteractionSourceNode.Grip)) &&
                  (sourcePose.TryGetRotation(out sourceGripRotation, InteractionSourceNode.Grip)))
             {
-                var handedness = interactionSourceState.source.handedness;
-
                 if (handedness == InteractionSourceHandedness.Left)
                 {
-                    leftHand.transform.position = sourceGripPosition;
-                    leftHand.transform.rotation = sourceGripRotation;
+                    if (leftHand == null)
+                    {
+                        leftHand = Object.Instantiate(leftHandSource, transform.parent.parent);
+                    }
 
-                    Debug.Log("Left hand position: " + leftHand.transform.position);
+                    leftHand.transform.localPosition = sourceGripPosition;
+                    leftHand.transform.localRotation = sourceGripRotation;
                 }
                 else if (handedness == InteractionSourceHandedness.Right)
                 {
-                    rightHand.transform.position = sourceGripPosition;
-                    rightHand.transform.rotation = sourceGripRotation;
+                    if (rightHand == null)
+                    {
+                        rightHand = Object.Instantiate(rightHandSource, transform.parent.parent);
+                    }
 
-                    Debug.Log("Right hand position: " + rightHand.transform.position);
+                    rightHand.transform.localPosition = sourceGripPosition;
+                    rightHand.transform.localRotation = sourceGripRotation;
                 }
-
             }
         }
     }

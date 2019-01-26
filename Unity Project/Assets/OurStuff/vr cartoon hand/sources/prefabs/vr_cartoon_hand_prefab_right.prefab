@@ -692,6 +692,7 @@ GameObject:
   - component: {fileID: 4455454299340976}
   - component: {fileID: 95485461166869656}
   - component: {fileID: 114702901995528884}
+  - component: {fileID: 114480562359559202}
   m_Layer: 0
   m_Name: vr_cartoon_hand_prefab_right
   m_TagString: Untagged
@@ -706,8 +707,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190682958899308}
-  m_LocalRotation: {x: -0, y: -0.707107, z: 0, w: 0.7071066}
-  m_LocalPosition: {x: 0.0011, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4868592178417320}
@@ -753,6 +754,25 @@ MonoBehaviour:
   OculusController: {fileID: 1999875183017438}
   StickUp: {fileID: 1740407416856426}
   StickFront: {fileID: 1579219933463198}
+--- !u!114 &114480562359559202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190682958899308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef91a627a11b4a22b41dd9109dfd8703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handedness: 1
+  destroyOnSourceLost: 1
+  useSourcePoseData: 1
+  poseAction:
+    id: 0
+    description: None
+    axisConstraint: 0
 --- !u!1 &1194714723928092
 GameObject:
   m_ObjectHideFlags: 0
