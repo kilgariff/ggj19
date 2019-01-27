@@ -42,7 +42,7 @@ public class LevelChange_00 : MonoBehaviour
                 textEnabled = false;
                 flashyText.SetActive(false);
                 if (introScene) {
-
+                    //SceneManager()
                 }
 
             }
