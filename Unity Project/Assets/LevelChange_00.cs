@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class LevelChange_00 : MonoBehaviour
 {
-    bool introScene = true;
+    public bool introScene = true;
     float timer4Flasher=600;
     public GameObject flashyText;
     public GameObject[] animTiles;
@@ -41,10 +41,12 @@ public class LevelChange_00 : MonoBehaviour
             if (sceneNum==1) {
                 textEnabled = false;
                 flashyText.SetActive(false);
-                if (introScene) {
-                    //SceneManager()
-                }
+                
 
+            }
+            if (introScene && sceneNum >= animTiles.Length)
+            {
+                SceneManager.LoadScene("Room1");
             }
         }
 
