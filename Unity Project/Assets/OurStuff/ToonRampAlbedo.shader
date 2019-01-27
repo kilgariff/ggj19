@@ -25,6 +25,7 @@
 		void surf (Input IN, inout SurfaceOutput o) 
 		{
 			o.Albedo = tex2D(_myDiffuse, IN.uv_myDiffuse).rgb;
+			o.Emission = float4(0,0,0,0);
 		}
 		
 		float4 LightingToonRamp(SurfaceOutput s, fixed3 lightDir, fixed3 viewDir, fixed atten)
@@ -35,8 +36,11 @@
 			float3 ramp = (tex2D(_RampTex, rh).rgb - 0.5) * 1.2 + 0.5;
 
 			float4 c;
+			
 			c.rgb = s.Albedo * _LightColor0.rgb * (ramp);
 			c.a = s.Alpha;
+
+			//c.e = float4(0,0,0,0);
 
 			/*
 			if (dot(s.Normal, viewDir) < 0.5)
