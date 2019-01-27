@@ -6,6 +6,8 @@ using UnityEngine.XR.WSA.Input;
 
 public class Hands : MonoBehaviour
 {
+    public GameLogic gameLogic = null;
+
     public GameObject leftHandSource = null;
     public GameObject rightHandSource = null;
 
@@ -24,6 +26,8 @@ public class Hands : MonoBehaviour
     {
         if (hand != null)
         {
+            // Animation:
+
             Animator anim;
             anim = hand.GetComponent<Animator>();
 
@@ -35,9 +39,26 @@ public class Hands : MonoBehaviour
             {
                 anim.SetTrigger(Idle);
             }
+
+            // Selection:
+
+            if (triggerValue >= 0.5f)
+            {
+                HandCollisionTracker hct = hand.GetComponent<HandCollisionTracker>();
+                if (hct != null)
+                {
+                    if (hct.hovering != null)
+                    {
+                        // Always put watch on left hand.
+                        gameLogic.SelectItem(leftHand, hct.hovering);
+                    }
+
+                    hct.hovering = null;
+                }
+            }
         }
     }
-
+    
     // Update is called once per frame
     void Update()
     {

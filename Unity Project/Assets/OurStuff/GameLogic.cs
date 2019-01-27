@@ -39,6 +39,29 @@ public class GameLogic : MonoBehaviour
 
     }
 
+    public void SelectItem(GameObject hand, GameObject item)
+    {
+        if (item.name == "Watch")
+        {
+            Debug.Log("Got the watch");
+            if (hand != null)
+            {
+                item.transform.parent = hand.transform;
+                item.transform.localPosition = new Vector3(-0.005401689f, 0.031669f, 0.09010f);
+                item.transform.localRotation = Quaternion.Euler(-65, 199.482f, -110);
+                item.transform.localScale = new Vector3(0.024f, 0.0181f, 0.0253f);
+            }
+        }
+        else if (item.name == "Keys")
+        {
+            Debug.Log("Got the keys");
+        }
+        else if (item.name == "Wallet")
+        {
+            Debug.Log("Got the wallet");
+        }
+    }
+
     public void UpdateWatchDisplay()
     {
         if (watchDisplayText == null)
