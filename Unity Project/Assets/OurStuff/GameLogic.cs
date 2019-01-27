@@ -12,6 +12,9 @@ public class GameLogic : MonoBehaviour
     private float timeLeft = 0;
     private Text watchDisplayText;
 
+    private bool hasKeys = false;
+    private bool hasWatch = false;
+
     void Start()
     {
         Reset();
@@ -50,15 +53,23 @@ public class GameLogic : MonoBehaviour
                 item.transform.localPosition = new Vector3(-0.005401689f, 0.031669f, 0.09010f);
                 item.transform.localRotation = Quaternion.Euler(-65, 199.482f, -110);
                 item.transform.localScale = new Vector3(0.024f, 0.0181f, 0.0253f);
+
+                hasWatch = true;
             }
         }
         else if (item.name == "Keys")
         {
             Debug.Log("Got the keys");
+            Destroy(item);
+
+            hasKeys = true;
         }
-        else if (item.name == "Wallet")
+        else if (item.name == "Handle" || item.name == "Handle2")
         {
-            Debug.Log("Got the wallet");
+            if (hasKeys == true && hasWatch == true)
+            {
+                Debug.Log("Next level!!!!!");
+            }
         }
     }
 
