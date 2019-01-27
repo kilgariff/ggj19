@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FP_general
-  m_Shader: {fileID: 4800000, guid: db089b2a841561744bdafb55981d7ad9, type: 3}
+  m_Name: toon_diffuse
+  m_Shader: {fileID: 4800000, guid: 6169c28af35ebf24daf6142584054777, type: 3}
   m_ShaderKeywords: _METALLICGLOSSMAP _NORMALMAP _SPECGLOSSMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -64,7 +64,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _myDiffuse:
-        m_Texture: {fileID: 2800000, guid: 25d20f8ed241cb34a8f6497272a3b0e1, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -79,7 +79,8 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _OutlineDot: 0.25
-    - _OutlineExtrusion: 0
+    - _OutlineExtrusion: 0.001
+    - _OutlineWidth: 0.851
     - _Parallax: 0.005
     - _Shininess: 0.078125
     - _SmoothnessTextureChannel: 0
@@ -88,7 +89,8 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.100302614, g: 0.9245283, b: 0.42875338, a: 1}
+    - _Color: {r: 0.11031505, g: 0.6320754, b: 0.31803676, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0.9056604, g: 0.09825563, b: 0.68359977, a: 1}
+    - _OutlineColor: {r: 0.9433962, g: 0.057849795, b: 0.7883836, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _Tresholds: {r: 0.4, g: 0.7, b: 0.4, a: 0.7}
