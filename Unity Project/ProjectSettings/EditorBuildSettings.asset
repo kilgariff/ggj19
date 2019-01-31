@@ -5,16 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/gameItro00.unity
-    guid: e9458e7278f8c4a49875db6691402d31
   - enabled: 1
     path: Assets/OurStuff/Room/Room1.unity
     guid: e095937ce0b7ed04980ce7c193efbeeb
-  - enabled: 1
-    path: Assets/gameOntro_00.unity
-    guid: 5ea4df309561de04f99268690c1a09dd
   m_configObjects: {}
